@@ -1,0 +1,36 @@
+CREATE DATABASE celula_bereshit;
+USE celula_bereshit;
+
+CREATE TABLE membros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    aprovado TINYINT(1) DEFAULT 0
+);
+
+CREATE TABLE avisos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    mensagem TEXT NOT NULL,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE agenda (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    evento VARCHAR(200) NOT NULL,
+    data_evento DATE NOT NULL
+);
+
+CREATE TABLE anotacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    conteudo TEXT NOT NULL,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+INSERT INTO admin (usuario, senha) VALUES ('admin', MD5('1234'));
